@@ -1,4 +1,5 @@
 import { Link } from "@mui/material";
+import Carousel from "react-bootstrap/Carousel";
 
 const ImageOne = require("/Users/karynhuston/raise/front-end/raise-app/src/12821591_5043079.jpg");
 const ImageTwo = require("/Users/karynhuston/raise/front-end/raise-app/src/Screen Shot 2023-02-12 at 8.01.06 PM.png");
@@ -6,47 +7,42 @@ const ImageThree = require("/Users/karynhuston/raise/front-end/raise-app/src/499
 
 export default function Home() {
   return (
-    <div className="container image-box">
-      <div className="slider">
-        <span id="slide-1"></span>
-        <span id="slide-2"></span>
-        <span id="slide-3"></span>
-        <div className="image-container">
+    <div className="container carosuel">
+      <Carousel>
+        <Carousel.Item interval={1000}>
           <img
+            className="d-block w-100"
             src={ImageOne}
-            className="parenting"
-            alt="parenting"
-            width="500"
-            height="300"
+            alt="First slide"
+            width="600"
+            height="380"
           />
+        </Carousel.Item>
+        <Carousel.Item interval={500}>
           <img
+            className="d-block w-100"
             src={ImageTwo}
-            className="slide"
-            alt="family-illustration"
-            width="500"
-            height="300"
+            alt="Second slide"
+            width="600"
+            height="380"
           />
+        </Carousel.Item>
+        <Carousel.Item>
           <img
+            className="d-block w-100"
             src={ImageThree}
-            className="slide"
-            alt="family-holding-newborn"
-            width="500"
-            height="300"
+            alt="Third slide"
+            width="600"
+            height="380"
           />
-        </div>
-        <div className="buttons">
-          <a href="#slide-1">🔘</a>
-          <a href="#slide-2">🔘</a>
-          <a href="#slide-3">🔘</a>
-        </div>
-      </div>
+        </Carousel.Item>
+      </Carousel>
       <section className="homeSection">
         <p>
           raise Is to connect parents and caregivers to an open discussion
           timeline with parenting questions and concerns. This app is ideal for
-          new parents overwhelmed and experienced to connect with each other
-          instantly.{" "}
-          <Link
+          new parents overwhelmed and experienced to connect with each other instantly.{" "}
+         {" "}<Link
             href="/questions"
             // underline="none"
             variant="h4"
@@ -65,10 +61,7 @@ export default function Home() {
           harmful or toxic to this community. If a post is reported it may be
           deleted immediatley. Guests are also allowed to edit a post. We
           welcome all new parents and caregivers from all backgrounds to join
-          and shape this community! eros scelerisque posuere. Quisque elit urna,
-          scelerisque quis faucibus sed, gravida eget ante. Phasellus hendrerit
-          vitae eros in ullamcorper. Suspendisse hendrerit purus sed risus vitae
-          eros i read about the future of raise.
+          and shape this community!
           <Link
             href="/questions"
             underline="none"
@@ -77,7 +70,7 @@ export default function Home() {
               fontFamily: "Ramaraja",
             }}
           >
-            {"↣see open discussions"}
+            {"↣community guidelines"}
           </Link>
         </p>
       </section>
