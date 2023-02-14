@@ -17,10 +17,10 @@ export default function Nav() {
         >
           {"raise"}
         </Link>
-        <span class="material-symbols-outlined">person</span>
-        <span class="user"><h4>login/signup</h4></span>
-{/* 
-        <Stack direction="row" spacing={2}></Stack> */}
+        <span className="material-symbols-outlined">person</span>
+        <span className="user">
+          <h4>login/signup</h4>
+        </span>
       </Container>
     </Navbar>
   );
