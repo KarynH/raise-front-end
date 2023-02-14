@@ -8,6 +8,17 @@ export default function Nav() {
     <Navbar className="nav">
       <Container>
         <Link
+          href="/"
+          underline="none"
+          variant="h4"
+          sx={{
+            fontFamily: "Ramaraja",
+          }}
+        >
+          {" "}
+          <span className="material-symbols-outlined">Home</span>{" "}
+        </Link>
+        <Link
           href="/questions"
           underline="none"
           variant="h4"
@@ -17,8 +28,9 @@ export default function Nav() {
         >
           {"raise"}
         </Link>
-        <span className="material-symbols-outlined">person</span>
+
         <span className="user">
+          <span className="material-symbols-outlined">person</span>
           <h4>login/signup</h4>
         </span>
       </Container>

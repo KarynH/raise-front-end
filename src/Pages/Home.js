@@ -1,4 +1,5 @@
 import { Link } from "@mui/material";
+
 const ImageOne = require("/Users/karynhuston/raise/front-end/raise-app/src/12821591_5043079.jpg");
 const ImageTwo = require("/Users/karynhuston/raise/front-end/raise-app/src/Screen Shot 2023-02-12 at 8.01.06 PM.png");
 const ImageThree = require("/Users/karynhuston/raise/front-end/raise-app/src/4990076_39936.jpg");
@@ -66,8 +67,8 @@ export default function Home() {
           welcome all new parents and caregivers from all backgrounds to join
           and shape this community! eros scelerisque posuere. Quisque elit urna,
           scelerisque quis faucibus sed, gravida eget ante. Phasellus hendrerit
-          vitae eros in ullamcorper. Suspendisse hendrerit purus sed risus vitae eros i
-          read about the future of raise.
+          vitae eros in ullamcorper. Suspendisse hendrerit purus sed risus vitae
+          eros i read about the future of raise.
           <Link
             href="/questions"
             underline="none"
