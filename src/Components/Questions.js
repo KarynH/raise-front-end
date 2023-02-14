@@ -1,18 +1,29 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Question from "./Question";
+import axios from "axios";
+
+import { useEffect, useState } from "react";
+
 
 export default function Questions() {
+
+  const API = process.env.REACT_APP_API_URL;
+  const [questions, setQuestions] = useState([]);
+
+    useEffect(() => {
+      axios.get(`${API}questions`).then((res) => {
+        console.log(res.data)
+        setQuestions(res.data)
+      }).catch((err) => console.err)
+    }, [API])
+
   return (
-    <Card className="text-center">
-      <Card.Header>Featured</Card.Header>
-      <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
-        <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
-    </Card>
+ <>
+ <h3 className="headingRecent">recent</h3>
+ {
+  questions.map((question) => {
+    return <Question key={question.id} question={question} />
+  })
+ }
+ </>
   );
 }

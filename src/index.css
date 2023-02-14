@@ -16,6 +16,9 @@ div .footer {
   display: table-cell;
 }
 
+.feed {
+
+}
 .carousel-inner {
   position: relative;
   width: 100%;
@@ -58,7 +61,61 @@ nav {
  color: rgb(45,155,241);
 }
 
+.commentTab {
+margin-left:80rem;
+}
 
+.questionBody {
+  font-size: 16px;
+  /* font-family: 'Inter', sans-serif; */
+  font-family: 'Playfair Display', serif;
+  /* font-family: 'PT Serif', serif; */
+  /* font-family: 'Quicksand', sans-serif; */
+}
+
+.headerDate {
+  /* float: right; */
+  /* margin-right:20rem; */
+  /* font-family: 'Dosis', sans-serif; */
+  font-family: 'Dosis', sans-serif;
+  margin-left:35rem;
+}
+
+.questionName {
+  font-family: 'Dosis', sans-serif;
+  margin-left:2rem;
+ 
+}
+
+.questionTopic {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  color: rgb(45,155,241);
+  margin-right:20rem;
+  float:right;
+
+}
+/* 
+
+font-family: 'Playfair Display', serif;
+font-family: 'PT Serif', serif;
+font-family: 'Quicksand', sans-serif;
+ */
+
+.feed {
+  margin-top: 30px;
+}
+
+.headingRecent {
+font-family: 'Montserrat', sans-serif;
+  margin-top:5rem;
+  margin-left: 19rem;
+}
+
+
+/* h3 {
+  font-family: 'Dosis', sans-serif;
+} */
 /* .navContent {
   margin-top: 15px;
   display: grid;
