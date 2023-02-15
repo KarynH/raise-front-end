@@ -1,16 +1,24 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
 import { Link } from "@mui/material";
 
 export default function Question({ question }) {
+  const formatDate = () => {
+    return new Date(question.todays_date).toLocaleDateString("en-us", {
+      month: "short",
+      weekday: "short",
+      day: "numeric",
+    });
+  };
+
   return (
     <div className="container feed">
       <Card>
         <Card.Header className="cardHeader">
           <span className="questionName">{question.name}</span>
-          <span className="headerDate">{question.todays_date}</span>{" "}
+          <span className="headerDate">
+            {formatDate(question.todays_date)}
+          </span>{" "}
           <span className="questionTopic">{question.topic}</span>
         </Card.Header>
         <Card.Body>

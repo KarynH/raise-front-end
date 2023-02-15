@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 
 export default function Questions() {
   const API = process.env.REACT_APP_API_URL;
@@ -34,14 +35,22 @@ export default function Questions() {
             Ask a question
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control type="text" placeholder="Enter name" />
+            <Form.Control type="text" placeholder="type something..." />
+            <Form.Select aria-label="Default select example">
+              <option className="category">Category</option>
+              <option value="1">Lifestyle</option>
+              <option value="2">New parenting</option>
+              <option value="3">Feeling thoughtful</option>
+              <option value="4">Products</option>
+              <option value="5">Mental health</option>
+              <option value="6">Information resources</option>
+              <option value="7">Finances</option>
+            </Form.Select>
+          </Form.Group>
+        </Form>
         <Modal.Footer>
           <Button variant="light" onClick={props.onHide}>
             Submit
@@ -60,7 +69,7 @@ export default function Questions() {
           className="modalButton"
           onClick={() => setModalShow(true)}
         >
-          Create a post
+          Ask a question
         </Button>
 
         <MyVerticallyCenteredModal
