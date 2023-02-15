@@ -8,7 +8,7 @@ const ImageThree = require("/Users/karynhuston/raise/front-end/raise-app/src/499
 export default function Home() {
   return (
     <div className="container carosuel">
-      <Carousel>
+      <Carousel className="innerCarosuel">
         <Carousel.Item interval={1000}>
           <img
             className="d-block w-100"
@@ -41,8 +41,8 @@ export default function Home() {
         <p>
           raise Is to connect parents and caregivers to an open discussion
           timeline with parenting questions and concerns. This app is ideal for
-          new parents overwhelmed and experienced to connect with each other instantly.{" "}
-         {" "}<Link
+          new parents overwhelmed and experienced to connect with each other instantly. lorem ispum lorem ispum
+         <Link
             href="/questions"
             // underline="none"
             variant="h4"
