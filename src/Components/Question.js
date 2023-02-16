@@ -13,32 +13,39 @@ export default function Question({ question }) {
 
   return (
     <div className="container feed">
-      <Card>
-        <Card.Header className="cardHeader">
-          <span className="questionName">{question.name}</span>
-          <span className="headerDate">
-            {formatDate(question.todays_date)}
-          </span>{" "}
-          <span className="questionTopic">{question.topic}</span>
-        </Card.Header>
-        <Card.Body>
-          <blockquote className="blockquote mb-2">
-            <p className="questionBody"> {question.body} </p>
-            <footer className="commentTab">
-              <Link
+      <Link
+        underline="none"
+        className="showLink"
+        href={`/questions/${question.id}/answers`}
+      >
+        <Card>
+          <Card.Header className="cardHeader">
+            <span className="questionName">{question.name}</span>
+            <span className="questionTopic">{question.topic}</span>
+            <span className="questionAge">stages:{question.child_age}</span>
+            <span className="headerDate">
+              <p>🗓{formatDate(question.todays_date)}</p>
+            </span>{" "}
+          </Card.Header>
+          <Card.Body>
+            <blockquote className="blockquote mb-2">
+              <p className="questionBody"> {question.body} </p>
+              <footer className="commentTab">
+                {/* <Link
                 href="/questions"
-                // underline="none"
+                underline="none"
                 variant="h5"
                 sx={{
                   fontFamily: "Ramaraja",
                 }}
               >
-                6 Comments
-              </Link>
-            </footer>
-          </blockquote>
-        </Card.Body>
-      </Card>
+                comments
+              </Link> */}
+              </footer>
+            </blockquote>
+          </Card.Body>
+        </Card>
+      </Link>
     </div>
   );
 }

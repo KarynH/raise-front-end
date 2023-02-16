@@ -61,7 +61,7 @@ export default function Questions() {
   }
 
   return (
-    <>
+    <> {/**index title and button for modal screen, the modal function is returned with a property and the function used to set the modal to true*/ }
       <div className="index">
         <h3 className="headingRecent">recent</h3>
         <Button
@@ -76,7 +76,7 @@ export default function Questions() {
           show={modalShow}
           onHide={() => setModalShow(false)}
         />
-      </div>
+      </div> {/*after the div for "recent" posts and modal we iterate over the data for the questions. apart of the index page. We return the componenet question. each question has a key and property to reference a value in the data*/}
       {questions.map((question) => {
         return <Question key={question.id} question={question} />;
       })}
