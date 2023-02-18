@@ -2,6 +2,8 @@ import Card from "react-bootstrap/Card";
 
 import { Link } from "@mui/material";
 
+
+
 export default function Question({ question }) {
   const formatDate = () => {
     return new Date(question.todays_date).toLocaleDateString("en-us", {
@@ -30,22 +32,11 @@ export default function Question({ question }) {
           <Card.Body>
             <blockquote className="blockquote mb-2">
               <p className="questionBody"> {question.body} </p>
-              <footer className="commentTab">
-                {/* <Link
-                href="/questions"
-                underline="none"
-                variant="h5"
-                sx={{
-                  fontFamily: "Ramaraja",
-                }}
-              >
-                comments
-              </Link> */}
-              </footer>
             </blockquote>
           </Card.Body>
         </Card>
       </Link>
+
     </div>
   );
 }
