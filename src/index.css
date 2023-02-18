@@ -261,5 +261,58 @@ font-style: italic;
 }
 
 
+.formBody {
+  color: rgb(36,123,210);
+  font-family: 'Montserrat', sans-serif;
+  display: contents;
 
- 
+}
+
+
+
+.formName  {
+  color: rgb(36,123,210);
+  font-family: 'Montserrat', sans-serif;
+  display: contents;
+}
+
+.formOptionTopic {
+  font-size: unset;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(36,123,210);
+}
+
+.formOptionAge {
+  font-size: unset;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(36,123,210);
+}
+
+.dateLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: large;
+  color: rgb(36,123,210);
+  display: contents;
+}
+.formDate {
+  font-family: inherit;
+  margin-left: 2rem;
+  color:  rgb(36,123,210);
+  border: solid 1px rgb(183, 179, 179);
+}
+
+
+.formClose {
+  transform: translate(-100%,110%);
+  background-color: antiquewhite;
+  border: antiquewhite;
+  color: black;
+}
+
+.formSubmit {
+  transform: translate(-40px, 41px);
+    background-color: antiquewhite;
+    border: antiquewhite;
+    color: black;
+}

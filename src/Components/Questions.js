@@ -35,6 +35,9 @@ export default function Questions() {
       .catch((err) => console.err);
   }, [API]);
 
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
   const handleSubmit = (event) => {
 
     event.preventDefault();
@@ -42,7 +45,8 @@ export default function Questions() {
       .post(`${API}questions`, newForm)
       .then(() => {
         navigate(`/questions`);
-        setNewForm(" ")
+        setNewForm(" ");
+        refreshPage();
       })
       .catch((error) => console.error("catch", error));
   };
@@ -76,12 +80,12 @@ export default function Questions() {
           id="contained-modal-title-vcenter"
         >
           <Modal.Header>
-            <Modal.Title>Modal heading</Modal.Title>
+      
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={handleSubmit} type="submit">
               <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Name</Form.Label>
+                <Form.Label className="formName">Name</Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
@@ -93,12 +97,12 @@ export default function Questions() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="body">
-                <Form.Label>Type anything</Form.Label>
+                <Form.Label className="formBody">Type anything</Form.Label>
                 <Form.Control
                   // as="textarea"
-
+          
                   type="text"
-                  placeholder="question body"
+                  placeholder="..."
                   name="body"
                   autoFocus
                   value={newForm.body}
@@ -107,13 +111,14 @@ export default function Questions() {
                 />
               </Form.Group>
               <Form.Select
+                className="formOptionTopic"
                 value={newForm.topic}
                 onChange={handleSelectChange}
                 name="topic"
                 aria-label="Default select example"
                 id="topic"
               >
-                <option className="category">Topic</option>
+                <option className="formTopic">Selec A Topic</option>
                 <option value="Lifestyle">Lifestyle</option>
                 <option value="New parenting">New parenting</option>
                 <option value="Feeling thoughtful">Feeling thoughtful</option>
@@ -125,21 +130,22 @@ export default function Questions() {
                 <option value="Finances">Finances</option>
               </Form.Select>
               <Form.Select
+              className="formOptionAge"
                 value={newForm.child_age}
                 onChange={handleSelectChange}
                 id="child_age"
                 name="child_age"
                 aria-label="Default select example"
               >
-                <option className="childStages">Child stages</option>
+                <option>Child stages</option>
                 <option value="0-2years">0-2years</option>
                 <option value="3-5years">3-5years</option>
                 <option value="6-8years">6-8years</option>
               </Form.Select>
-              <label htmlFor="date">Todays date</label>
+              <label htmlFor="date" className="dateLabel">Todays date</label>
 
               <input
-                className="date"
+                className="formDate"
                 onChange={handleSelectChange}
                 value={newForm.todays_date}
                 type="date"
@@ -147,12 +153,13 @@ export default function Questions() {
                 name="todays_date"
                 min="2023-16-02"
               />
-                   <Button variant="secondary" onClick={handleClose}>
+                   <Button className="formClose" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" type="submit">
+            <Button className="formSubmit" type="submit" onClick={handleClose}>
               Submit
             </Button>
+
             </Form>
           </Modal.Body>
           <Modal.Footer>
