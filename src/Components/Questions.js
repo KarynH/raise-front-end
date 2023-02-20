@@ -1,7 +1,7 @@
 import Question from "./Question";
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import {  useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -23,7 +23,7 @@ export default function Questions() {
     topic: "",
     child_age: "",
   });
-  // const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     axios
@@ -64,9 +64,9 @@ export default function Questions() {
 
   return (
     <>
-      {" "}
-      {/**index title and button for modal screen, the modal function is returned with a property and the function used to set the modal to true*/}
-      <div className="index">
+      
+
+       <div className="index">
         <h3 className="headingRecent">recent</h3>
 
         <Button className="modalButton" variant="primary" onClick={handleShow}>
@@ -93,6 +93,7 @@ export default function Questions() {
                   autoFocus
                   value={newForm.name}
                   onChange={handleTextChange}
+            
                 />
               </Form.Group>
 
@@ -108,6 +109,7 @@ export default function Questions() {
                   value={newForm.body}
                   onChange={handleTextChange}
                   // rows={3}
+                
                 />
               </Form.Group>
               <Form.Select
@@ -117,6 +119,7 @@ export default function Questions() {
                 name="topic"
                 aria-label="Default select example"
                 id="topic"
+             
               >
                 <option className="formTopic">Selec A Topic</option>
                 <option value="Lifestyle">Lifestyle</option>
@@ -136,6 +139,7 @@ export default function Questions() {
                 id="child_age"
                 name="child_age"
                 aria-label="Default select example"
+              
               >
                 <option>Child stages</option>
                 <option value="0-2years">0-2years</option>
@@ -152,6 +156,7 @@ export default function Questions() {
                 id="todays_date"
                 name="todays_date"
                 min="2023-16-02"
+              
               />
                    <Button className="formClose" onClick={handleClose}>
               Close
@@ -166,8 +171,8 @@ export default function Questions() {
        
           </Modal.Footer>
         </Modal>
-      </div>{" "}
-      {/*after the div for "recent" posts and modal we iterate over the data for the questions. apart of the index page. We return the componenet question. each question has a key and property to reference a value in the data*/}
+      </div>
+
       {questions.map((question) => {
         return <Question key={question.id} question={question} />;
       })}

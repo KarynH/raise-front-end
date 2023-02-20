@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Nav from "./Components/Nav"
+import NavBar from "./Components/NavBar"
 import Footer from  "./Components/Footer"
 
 import Home from "./Pages/Home";
@@ -13,10 +13,13 @@ import FourOFour from "./Pages/FourOFour"
 
 
 function App() {
+
+
+  
   return (
     <div className="App">
       <Router>
-        <Nav />
+        <NavBar />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

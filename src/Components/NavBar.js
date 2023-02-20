@@ -1,12 +1,12 @@
 import { Link } from "@mui/material";
 
-export default function Nav() {
+export default function NavBar() {
   return (
     <nav>
       <Link
         className="home"
         href="/"
-        underline="none"
+        underline="always"
         variant="h4"
         sx={{
           fontFamily: "Quicksand",
@@ -19,7 +19,7 @@ export default function Nav() {
       <Link
         className="raiseLogo"
         href="/questions"
-        underline="none"
+        underline="always"
         variant="h3"
         sx={{
           fontFamily: "Ramaraja",
@@ -30,11 +30,11 @@ export default function Nav() {
     
       <Link
         className="parentingTips"
-        color=" rgb(45,155,241)"
+      
         href="/questions"
         text-align="center"
-        underline="none"
-        variant="h3"
+        underline="always"
+        variant="h5"
         sx={{
           fontFamily: "PT Serif",
         }}
@@ -43,21 +43,21 @@ export default function Nav() {
       </Link>
       <Link
         className="parentingTips"
-        color=" rgb(45,155,241)"
+       
         href="/questions"
         text-align="center"
-        underline="none"
-        variant="h3"
+        underline="always"
+        variant="h5"
         sx={{
           fontFamily: "PT Serif",
         }}
       >
-        {"lorem ispum"}
+        {"community guidelines"}
       </Link>
       <span className="material-symbols-outlined userLink">
-        {"login"}
-        {"person"}
+        {"person"} 
       </span>
-    </nav>
+</nav>
+
   );
 }
