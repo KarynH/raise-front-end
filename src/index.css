@@ -8,7 +8,7 @@ div .footer {
   background-color:rgb(45,155,241);
   color: blue;
   text-align: center;
-  height: 10%;
+  height: 5%;
   opacity: 60%;
 }
 
@@ -93,11 +93,16 @@ img {
 .questionBodyShow {
   font-size: 20px;
   font-weight: bold;
+  font-family: unset;
   /* margin-top:10px;
   margin-left:20px; */
-  transform: translate(20%, -20%);
-  font-family: inherit;
+  border-radius: 1rem;
+  display: unset;
+  border:solid 1.5px white;
+  background-color: white;
+  /* transform: translate(20%, -20%); */
   color: midnightblue;
+  margin-left:5rem;
  
 }
 

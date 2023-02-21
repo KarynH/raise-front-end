@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,30 +10,38 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import { Link } from "@mui/material";
+import Answers from "./Answers";
 
 export default function QuestionDetails() {
   const API = process.env.REACT_APP_API_URL;
 
   const { navigate } = useNavigate();
   const { id } = useParams();
-  const [answers, setAnswers] = useState([]);
- 
- const [responses, setResponses] = useState([
-    'that is a really great idea. i would not spend $30 for cloth diapers!',
-    'no way thats a beautiful idea',
-    'awesome days ahead for you and your little one'
-  ]);
-  const [show, setShow] = useState(false);
 
+  const [question, setQuestions] = useState([]);
+
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+ 
+//  const [responses, setResponses] = useState([
+//     'that is a really great idea. i would not spend $30 for cloth diapers!',
+//     'no way thats a beautiful idea',
+//     'awesome days ahead for you and your little one'
+//   ]);
 
-  useEffect(() => {
-    axios.get(`${API}/questions/${id}`).then((res) => {
+useEffect(() => {
+  axios
+    .get(`${API}questions/${id}`)
+    .then((res) => {
       console.log(res.data);
-      setAnswers(res.data.allAnswers);
+    setQuestions(res.data);
+    })
+    .catch((c) => {
+      console.warn("catch", c);
     });
-  }, [API, id]);
+}, [id, API]);
+
 
   const formatDate = () => {
     return new Date().toLocaleDateString("en-us", {
@@ -42,13 +51,7 @@ export default function QuestionDetails() {
     });
   };
 
-  // const childAge = answers
-  //   .filter((answer) => answer.child_age != null)
-  //   .map((answer) => answer.child_age);
-
-  // const getQuestionBody = answers
-  //   .filter((answer) => answer.body != null)
-  //   .map((answer) => answer.body);
+  //QUESTION DETAILS SHOULD -->> DELETE AND PUT, POST FROM  -->> ANSWERS FOR NEW ANSWER IF NOT POSSIBLE TODAY (STRETCH GOAL)
 
   const handleDeletion = () => {
     axios
@@ -108,27 +111,16 @@ export default function QuestionDetails() {
           </Card.Header>
           <Card.Body>
             <Card.Title className="questionTopic">
-              {/* stages:{childAge[0]} */}
+               stages: {question.child_age}
             </Card.Title>
             <Card.Text className="questionBodyShow">
-              {/* {getQuestionBody[0]} */}
+               {question.body} 
             </Card.Text>
           </Card.Body>
         </Card>
-        {responses.map((response,index) => {
-          return (
-            <div className="responseCards">
-              <Card key={index}>
-                <Card.Body classname="responseCard">
-                  <p className="responseDetails">
-                  providerType: date: 🗓
-                  </p>
-                  {response}
-                </Card.Body>
-              </Card>
-            </div>
-          );
-        })}
+       <div className="responseCards">
+            <Answers />
+       </div>
         <div className="container navigationLink">
           <Link underline="none" className="backLink" href={`/questions`}>
             Back

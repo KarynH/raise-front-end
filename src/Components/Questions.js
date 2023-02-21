@@ -142,6 +142,7 @@ export default function Questions() {
               
               >
                 <option>Child stages</option>
+                <option value="All ages">All ages</option>
                 <option value="0-2years">0-2years</option>
                 <option value="3-5years">3-5years</option>
                 <option value="6-8years">6-8years</option>
