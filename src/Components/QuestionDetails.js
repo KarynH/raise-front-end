@@ -1,16 +1,17 @@
 
 import axios from "axios";
+
+import Answers from "./Answers";
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import { Link } from "@mui/material";
-import Answers from "./Answers";
 
 export default function QuestionDetails() {
   const API = process.env.REACT_APP_API_URL;
@@ -24,11 +25,6 @@ export default function QuestionDetails() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
  
-//  const [responses, setResponses] = useState([
-//     'that is a really great idea. i would not spend $30 for cloth diapers!',
-//     'no way thats a beautiful idea',
-//     'awesome days ahead for you and your little one'
-//   ]);
 
 useEffect(() => {
   axios
@@ -51,23 +47,28 @@ useEffect(() => {
     });
   };
 
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
   //QUESTION DETAILS SHOULD -->> DELETE AND PUT, POST FROM  -->> ANSWERS FOR NEW ANSWER IF NOT POSSIBLE TODAY (STRETCH GOAL)
 
   const handleDeletion = () => {
     axios
-      .delete(`${API}/questions/${id}`)
+      .delete(`${API}questions/${id}`)
       .then(
         () => {
-          navigate(`/questions`);
+          navigate(`questions`)
+          refreshPage()
         },
         (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
-  };
+      }
 
   return (
     <div className="showBody">
       <div className="container cardDetails">
+
         <Modal
           show={show}
           onHide={handleClose}
@@ -100,6 +101,7 @@ useEffect(() => {
             <Button onClick={handleDeletion}>Delete</Button>
           </Modal.Footer>
         </Modal>
+
         <Card className="responseMain">
           <Card.Header>
             <Nav>
@@ -111,21 +113,24 @@ useEffect(() => {
           </Card.Header>
           <Card.Body>
             <Card.Title className="questionTopic">
-               stages: {question.child_age}
+               stages: {question.child_age}, {question.name}
             </Card.Title>
             <Card.Text className="questionBodyShow">
                {question.body} 
             </Card.Text>
           </Card.Body>
         </Card>
-       <div className="responseCards">
-            <Answers />
-       </div>
+
+       <>
+            <Answers formatDate={formatDate} />
+       </>
+
         <div className="container navigationLink">
           <Link underline="none" className="backLink" href={`/questions`}>
             Back
           </Link>
         </div>
+
       </div>
     </div>
   );

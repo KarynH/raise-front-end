@@ -1,19 +1,19 @@
-export default function Answers() {
-    return (<p>each answer</p>)  
-}
 
- {/* {responses.map((response,index) => {
-          return (
-            <div className="responseCards">
-              <Card key={index}>
-                <Card.Body className="responseCard">
+import Card from 'react-bootstrap/Card';
+
+export default function Answers({answer, formatDate}) {
+
+    return (
+        <>
+              <Card className="responseCard2">
+                <Card.Body>
                   <p className="responseDetails">
-                  providerType: date: 🗓
+                 {formatDate(answer.todays_date)} 🗓 {answer.provider_type}
                   </p>
-                  {response}
+                  {answer.response}
                 </Card.Body>
               </Card>
-            </div>
+            </>
           );
-        })} */}
+    }
         

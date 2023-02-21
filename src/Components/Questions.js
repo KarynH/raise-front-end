@@ -1,4 +1,5 @@
 import Question from "./Question";
+
 import axios from "axios";
 
 import {  useState, useEffect } from "react";
@@ -9,13 +10,19 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 export default function Questions() {
+
   let navigate = useNavigate();
 
   const API = process.env.REACT_APP_API_URL;
+
+  const [questions, setQuestions] = useState([]);
+
   const [show, setShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [questions, setQuestions] = useState([]);
+
+
   const [newForm, setNewForm] = useState({
     body: "",
     name: "",
@@ -23,7 +30,7 @@ export default function Questions() {
     topic: "",
     child_age: "",
   });
-  const [modalShow, setModalShow] = useState(false);
+
 
   useEffect(() => {
     axios
@@ -38,6 +45,16 @@ export default function Questions() {
   const refreshPage = () => {
     window.location.reload(false)
   }
+
+  const handleTextChange = (event) => {
+    setNewForm({ ...newForm, [event.target.id]: event.target.value });
+  };
+
+  const handleSelectChange = (event) => {
+    console.log(event.target.value)
+    setNewForm({...newForm, [event.target.id]: event.target.value});
+  };
+
   const handleSubmit = (event) => {
 
     event.preventDefault();
@@ -51,21 +68,9 @@ export default function Questions() {
       .catch((error) => console.error("catch", error));
   };
 
-  const handleTextChange = (event) => {
-    setNewForm({ ...newForm, [event.target.id]: event.target.value });
-  };
-
-  const handleSelectChange = (event) => {
-    console.log(event.target.value)
-    setNewForm({...newForm, [event.target.id]: event.target.value});
-  };
-  // console.log(newForm.topic, 'NEW FORM')
-  console.log(newForm);
 
   return (
     <>
-      
-
        <div className="index">
         <h3 className="headingRecent">recent</h3>
 

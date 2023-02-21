@@ -221,7 +221,7 @@ border: grey;
 }
 
 .responseCards2{
-  margin-top:2rem;
+
 }
 
 .index {
@@ -269,8 +269,8 @@ h3 {
 }
 
 .responseCards {
-  margin-top: 5rem;
-  display: flex;
+  margin-top: 4rem;
+  display: table;
   text-align: justify;
   font-family: system-ui;
   align-items: center;
