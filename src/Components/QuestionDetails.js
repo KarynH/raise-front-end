@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 import Answers from "./Answers";
@@ -16,7 +15,7 @@ import { Link } from "@mui/material";
 export default function QuestionDetails() {
   const API = process.env.REACT_APP_API_URL;
 
-  const { navigate } = useNavigate();
+  let  navigate  = useNavigate();
   const { id } = useParams();
 
   const [question, setQuestions] = useState([]);
@@ -28,7 +27,7 @@ export default function QuestionDetails() {
 
 useEffect(() => {
   axios
-    .get(`${API}questions/${id}`)
+    .get(`${API}/questions/${id}`)
     .then((res) => {
       console.log(res.data);
     setQuestions(res.data);
@@ -50,11 +49,11 @@ useEffect(() => {
   const refreshPage = () => {
     window.location.reload(false)
   }
-  //QUESTION DETAILS SHOULD -->> DELETE AND PUT, POST FROM  -->> ANSWERS FOR NEW ANSWER IF NOT POSSIBLE TODAY (STRETCH GOAL)
+
 
   const handleDeletion = () => {
     axios
-      .delete(`${API}questions/${id}`)
+      .delete(`${API}/questions/${id}`)
       .then(
         () => {
           navigate(`questions`)
@@ -63,7 +62,8 @@ useEffect(() => {
         (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
-      }
+      };
+
 
   return (
     <div className="showBody">
@@ -122,7 +122,7 @@ useEffect(() => {
         </Card>
 
        <>
-            <Answers formatDate={formatDate} />
+            <Answers formatDate={formatDate} refreshPage={refreshPage}/>
        </>
 
         <div className="container navigationLink">

@@ -1,7 +1,7 @@
-
+/* 
 div .footer {
 
-  position: fixed;
+
   left: 0;
   bottom: 0;
   width: 100%;
@@ -10,7 +10,7 @@ div .footer {
   text-align: center;
   height: 5%;
   opacity: 60%;
-}
+} */
 
 
 .showModalButton {
@@ -90,6 +90,12 @@ img {
   box-shadow: inset;
 }
 
+.comment {
+  background-color: antiquewhite;
+  border-color: antiquewhite;
+  color: midnightblue;
+  border-radius: 15rem;
+}
 .questionBodyShow {
   font-size: 20px;
   font-weight: bold;
@@ -171,9 +177,7 @@ nav {
    margin-left:8rem;
 } 
 
-.dropDown {
 
-}
 
 .nav {
   background-color: antiquewhite;
@@ -220,8 +224,9 @@ border: grey;
   
 }
 
-.responseCards2{
-
+.responseCard2{
+margin-top:2rem;
+border-radius: 1rem;
 }
 
 .index {
@@ -318,8 +323,12 @@ font-style: italic;
   display: contents;
 
 }
-.editForm {
 
+.backEditButton {
+ background-color: antiquewhite;
+ border: antiquewhite;
+ color:violet;
+margin-left:10rem;
 }
 
 .harmfulDeletion {

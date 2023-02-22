@@ -6,7 +6,6 @@ import Footer from  "./Components/Footer"
 import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
-import New from "./Pages/New";
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour"
 
@@ -24,8 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/questions" element={<Index />} />
-            <Route path="/questions/:id" element={<Show />} />
-            <Route path="/questions/new" element={<New />} />
+            <Route path="/questions/:id/answers" element={<Show />} />
             <Route path="/questions/:id/edit" element={<Edit />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>

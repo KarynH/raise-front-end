@@ -11,14 +11,11 @@ import Form from "react-bootstrap/Form";
 
 export default function Questions() {
 
-  let navigate = useNavigate();
-
   const API = process.env.REACT_APP_API_URL;
 
   const [questions, setQuestions] = useState([]);
 
   const [show, setShow] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -31,10 +28,9 @@ export default function Questions() {
     child_age: "",
   });
 
-
   useEffect(() => {
     axios
-      .get(`${API}questions`)
+      .get(`${API}/questions`)
       .then((res) => {
         console.log(res.data);
         setQuestions(res.data);
@@ -42,24 +38,26 @@ export default function Questions() {
       .catch((err) => console.err);
   }, [API]);
 
-  const refreshPage = () => {
-    window.location.reload(false)
-  }
 
   const handleTextChange = (event) => {
     setNewForm({ ...newForm, [event.target.id]: event.target.value });
   };
 
   const handleSelectChange = (event) => {
-    console.log(event.target.value)
     setNewForm({...newForm, [event.target.id]: event.target.value});
   };
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
 
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
+
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${API}questions`, newForm)
+      .post(`${API}/questions`, newForm)
       .then(() => {
         navigate(`/questions`);
         setNewForm(" ");
@@ -137,6 +135,7 @@ export default function Questions() {
                 </option>
                 <option value="Finances">Finances</option>
               </Form.Select>
+              
               <Form.Select
               className="formOptionAge"
                 value={newForm.child_age}

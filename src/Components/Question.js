@@ -17,8 +17,9 @@ export default function Question({ question }) {
       <Link
         underline="none"
         className="showLink"
-        href={`/questions/${question.id}`}
+        href={`/questions/${question.id}/answers`}
       >
+        
         <Card>
           <Card.Header className="cardHeader">
             <span className="questionName">{question.name}</span>
