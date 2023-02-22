@@ -27,10 +27,9 @@ export default function NavBar() {
       >
         {"raise"}
       </Link>
-    
+
       <Link
         className="parentingTips"
-      
         href="/questions"
         text-align="center"
         underline="always"
@@ -43,7 +42,6 @@ export default function NavBar() {
       </Link>
       <Link
         className="parentingTips"
-       
         href="/questions"
         text-align="center"
         underline="always"
@@ -54,10 +52,7 @@ export default function NavBar() {
       >
         {"community guidelines"}
       </Link>
-      <span className="material-symbols-outlined userLink">
-        {"person"} 
-      </span>
-</nav>
-
+      <span className="material-symbols-outlined userLink">{"person"}</span>
+    </nav>
   );
 }

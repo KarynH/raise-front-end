@@ -1,20 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import NavBar from "./Components/NavBar"
-import Footer from  "./Components/Footer"
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
-import FourOFour from "./Pages/FourOFour"
-
-
+import FourOFour from "./Pages/FourOFour";
 
 function App() {
-
-
-  
   return (
     <div className="App">
       <Router>

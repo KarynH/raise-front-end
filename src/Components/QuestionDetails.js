@@ -15,7 +15,7 @@ import { Link } from "@mui/material";
 export default function QuestionDetails() {
   const API = process.env.REACT_APP_API_URL;
 
-  let  navigate  = useNavigate();
+  let navigate = useNavigate();
   const { id } = useParams();
 
   const [question, setQuestions] = useState([]);
@@ -23,20 +23,18 @@ export default function QuestionDetails() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
- 
 
-useEffect(() => {
-  axios
-    .get(`${API}/questions/${id}`)
-    .then((res) => {
-      console.log(res.data);
-    setQuestions(res.data);
-    })
-    .catch((c) => {
-      console.warn("catch", c);
-    });
-}, [id, API]);
-
+  useEffect(() => {
+    axios
+      .get(`${API}/questions/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setQuestions(res.data);
+      })
+      .catch((c) => {
+        console.warn("catch", c);
+      });
+  }, [id, API]);
 
   const formatDate = () => {
     return new Date().toLocaleDateString("en-us", {
@@ -47,28 +45,25 @@ useEffect(() => {
   };
 
   const refreshPage = () => {
-    window.location.reload(false)
-  }
-
+    window.location.reload(false);
+  };
 
   const handleDeletion = () => {
     axios
       .delete(`${API}/questions/${id}`)
       .then(
         () => {
-          navigate(`questions`)
-          refreshPage()
+          navigate(`questions`);
+          refreshPage();
         },
         (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
-      };
-
+  };
 
   return (
     <div className="showBody">
       <div className="container cardDetails">
-
         <Modal
           show={show}
           onHide={handleClose}
@@ -113,24 +108,21 @@ useEffect(() => {
           </Card.Header>
           <Card.Body>
             <Card.Title className="questionTopic">
-               stages: {question.child_age}, {question.name}
+              stages: {question.child_age}, {question.name}
             </Card.Title>
-            <Card.Text className="questionBodyShow">
-               {question.body} 
-            </Card.Text>
+            <Card.Text className="questionBodyShow">{question.body}</Card.Text>
           </Card.Body>
         </Card>
 
-       <>
-            <Answers formatDate={formatDate} refreshPage={refreshPage}/>
-       </>
+        <>
+          <Answers formatDate={formatDate} refreshPage={refreshPage} />
+        </>
 
         <div className="container navigationLink">
           <Link underline="none" className="backLink" href={`/questions`}>
             Back
           </Link>
         </div>
-
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ export default function QuestionEditForm() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-
   const [editQuestion, setEditQuestion] = useState({
     body: "",
     name: "",
@@ -22,7 +21,6 @@ export default function QuestionEditForm() {
     topic: "",
     child_age: "",
   });
-
 
   const updateQuestion = (editQuestion) => {
     axios
@@ -85,7 +83,6 @@ export default function QuestionEditForm() {
             onChange={handleTextChange}
           />
         </Form.Group>
-
 
         <Form.Select
           className="formOptionTopic"

@@ -2,7 +2,7 @@ import Question from "./Question";
 
 import axios from "axios";
 
-import {  useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -10,7 +10,6 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 export default function Questions() {
-
   const API = process.env.REACT_APP_API_URL;
 
   const [questions, setQuestions] = useState([]);
@@ -18,7 +17,6 @@ export default function Questions() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   const [newForm, setNewForm] = useState({
     body: "",
@@ -38,21 +36,19 @@ export default function Questions() {
       .catch((err) => console.err);
   }, [API]);
 
-
   const handleTextChange = (event) => {
     setNewForm({ ...newForm, [event.target.id]: event.target.value });
   };
 
   const handleSelectChange = (event) => {
-    setNewForm({...newForm, [event.target.id]: event.target.value});
+    setNewForm({ ...newForm, [event.target.id]: event.target.value });
   };
 
   const navigate = useNavigate();
 
   const refreshPage = () => {
-    window.location.reload(false)
-  }
-
+    window.location.reload(false);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,10 +62,9 @@ export default function Questions() {
       .catch((error) => console.error("catch", error));
   };
 
-
   return (
     <>
-       <div className="index">
+      <div className="index">
         <h3 className="headingRecent">recent</h3>
 
         <Button className="modalButton" variant="primary" onClick={handleShow}>
@@ -82,9 +77,7 @@ export default function Questions() {
           className="modalWindow"
           id="contained-modal-title-vcenter"
         >
-          <Modal.Header>
-      
-          </Modal.Header>
+          <Modal.Header></Modal.Header>
           <Modal.Body>
             <Form onSubmit={handleSubmit} type="submit">
               <Form.Group className="mb-3" controlId="name">
@@ -96,7 +89,6 @@ export default function Questions() {
                   autoFocus
                   value={newForm.name}
                   onChange={handleTextChange}
-            
                 />
               </Form.Group>
 
@@ -104,7 +96,7 @@ export default function Questions() {
                 <Form.Label className="formBody">Type anything</Form.Label>
                 <Form.Control
                   // as="textarea"
-          
+
                   type="text"
                   placeholder="..."
                   name="body"
@@ -112,7 +104,6 @@ export default function Questions() {
                   value={newForm.body}
                   onChange={handleTextChange}
                   // rows={3}
-                
                 />
               </Form.Group>
               <Form.Select
@@ -122,7 +113,6 @@ export default function Questions() {
                 name="topic"
                 aria-label="Default select example"
                 id="topic"
-             
               >
                 <option className="formTopic">Selec A Topic</option>
                 <option value="Lifestyle">Lifestyle</option>
@@ -135,15 +125,14 @@ export default function Questions() {
                 </option>
                 <option value="Finances">Finances</option>
               </Form.Select>
-              
+
               <Form.Select
-              className="formOptionAge"
+                className="formOptionAge"
                 value={newForm.child_age}
                 onChange={handleSelectChange}
                 id="child_age"
                 name="child_age"
                 aria-label="Default select example"
-              
               >
                 <option>Child stages</option>
                 <option value="All ages">All ages</option>
@@ -151,7 +140,9 @@ export default function Questions() {
                 <option value="3-5years">3-5years</option>
                 <option value="6-8years">6-8years</option>
               </Form.Select>
-              <label htmlFor="date" className="dateLabel">Todays date</label>
+              <label htmlFor="date" className="dateLabel">
+                Todays date
+              </label>
 
               <input
                 className="formDate"
@@ -161,20 +152,20 @@ export default function Questions() {
                 id="todays_date"
                 name="todays_date"
                 min="2023-16-02"
-              
               />
-                   <Button className="formClose" onClick={handleClose}>
-              Close
-            </Button>
-            <Button className="formSubmit" type="submit" onClick={handleClose}>
-              Submit
-            </Button>
-
+              <Button className="formClose" onClick={handleClose}>
+                Close
+              </Button>
+              <Button
+                className="formSubmit"
+                type="submit"
+                onClick={handleClose}
+              >
+                Submit
+              </Button>
             </Form>
           </Modal.Body>
-          <Modal.Footer>
-       
-          </Modal.Footer>
+          <Modal.Footer></Modal.Footer>
         </Modal>
       </div>
 

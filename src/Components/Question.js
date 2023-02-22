@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import { Link } from "@mui/material";
 
 export default function Question({ question }) {
-
   const formatDate = () => {
     return new Date(question.todays_date).toLocaleDateString("en-us", {
       month: "short",
@@ -19,7 +18,6 @@ export default function Question({ question }) {
         className="showLink"
         href={`/questions/${question.id}/answers`}
       >
-        
         <Card>
           <Card.Header className="cardHeader">
             <span className="questionName">{question.name}</span>
@@ -35,7 +33,6 @@ export default function Question({ question }) {
             </blockquote>
           </Card.Body>
         </Card>
-
       </Link>
     </div>
   );
