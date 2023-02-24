@@ -2,7 +2,7 @@
 
  Purpose: raise Is to connect parents and caregivers to an open discussion timeline with parenting questions and concerns. This app is ideal for new parents overwhelmed and experienced to connect with each other instantly.
 
-# Installation
+# Getting Started 
 In your terminal, cd into your choosen directory, paste the following command.
 ``` 
 https://github.com/KarynH/raise-front-end.git
