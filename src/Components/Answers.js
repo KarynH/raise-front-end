@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import Answer from "./Answer";
 
 export default function Answers({ formatDate, refreshPage }) {
+  
   const API = process.env.REACT_APP_API_URL;
 
   const [answers, setAnswers] = useState([]);

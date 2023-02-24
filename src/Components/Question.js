@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "@mui/material";
 
 export default function Question({ question }) {
+  
   const formatDate = () => {
     return new Date(question.todays_date).toLocaleDateString("en-us", {
       month: "short",

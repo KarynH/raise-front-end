@@ -1,9 +1,9 @@
 import { Link } from "@mui/material";
 import Carousel from "react-bootstrap/Carousel";
 
-const ImageOne = require("/Users/karynhuston/raise/front-end/raise-app/src/12821591_5043079.jpg");
-const ImageTwo = require("/Users/karynhuston/raise/front-end/raise-app/src/Screen Shot 2023-02-12 at 8.01.06 PM.png");
-const ImageThree = require("/Users/karynhuston/raise/front-end/raise-app/src/4990076_39936.jpg");
+const ImageOne = require("/Users/karynhuston/raise/front-end/raise-app/src/HomeImages/12821591_5043079.jpg");
+const ImageTwo = require("/Users/karynhuston/raise/front-end/raise-app/src/HomeImages/Screen Shot 2023-02-12 at 8.01.06 PM.png");
+const ImageThree = require("/Users/karynhuston/raise/front-end/raise-app/src/HomeImages/4990076_39936.jpg");
 
 export default function Home() {
   return (
