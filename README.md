@@ -5,7 +5,7 @@
 # Getting Started 
 In your terminal, cd into your choosen directory, paste the following command.
 ``` 
-https://github.com/KarynH/raise-front-end.git
+git clone https://github.com/KarynH/raise-front-end.git
 ```
 cd into the directory and 
 ```
